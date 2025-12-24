@@ -9,6 +9,7 @@ const projects = [
     category: "Cinematic",
     thumbnail: "https://img.youtube.com/vi/y_g03JpwB9E/maxresdefault.jpg",
     videoId: "y_g03JpwB9E",
+    type: "youtube",
     year: "2024",
   },
   {
@@ -17,35 +18,69 @@ const projects = [
     category: "Promo",
     thumbnail: "https://img.youtube.com/vi/2tiZPX0dBhQ/maxresdefault.jpg",
     videoId: "2tiZPX0dBhQ",
+    type: "youtube",
     year: "2024",
   },
   {
     id: 3,
-    title: "Wedding Film",
-    category: "Cinematic",
-    thumbnail: "https://img.youtube.com/vi/qnQju45aEH4/maxresdefault.jpg",
-    videoId: "qnQju45aEH4",
+    title: "Wedding Teaser 1",
+    category: "Wedding",
+    thumbnail:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=640&h=360&fit=crop&crop=center",
+    videoId: "1EC_btp0wZPQ4uKiTNJsCBcy4HADk3PS2",
+    type: "drive",
     year: "2024",
   },
   {
     id: 4,
-    title: "UGC Reel - NxtWave",
-    category: "UGC",
-    thumbnail: "https://img.youtube.com/vi/9rNzu0kXuDs/maxresdefault.jpg",
-    videoId: "9rNzu0kXuDs",
+    title: "Wedding Teaser 2",
+    category: "Wedding",
+    thumbnail:
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=640&h=360&fit=crop&crop=center",
+    videoId: "1fq0QG5ph2rNLjtYZFCnDR38b5Hho_n2C",
+    type: "drive",
     year: "2024",
   },
   {
     id: 5,
+    title: "Wedding Teaser 3",
+    category: "Wedding",
+    thumbnail:
+      "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=640&h=360&fit=crop&crop=center",
+    videoId: "1n_VIf4b6uqp50b9SZGbLqAzEkSfEmqJN",
+    type: "drive",
+    year: "2024",
+  },
+  {
+    id: 6,
+    title: "UGC Reel - NxtWave",
+    category: "UGC",
+    thumbnail: "https://img.youtube.com/vi/9rNzu0kXuDs/maxresdefault.jpg",
+    videoId: "9rNzu0kXuDs",
+    type: "youtube",
+    year: "2024",
+  },
+  {
+    id: 7,
     title: "Brand Content",
     category: "UGC",
     thumbnail: "https://img.youtube.com/vi/LItmZYdTMJM/maxresdefault.jpg",
     videoId: "LItmZYdTMJM",
+    type: "youtube",
+    year: "2024",
+  },
+  {
+    id: 8,
+    title: "UGC Video",
+    category: "UGC",
+    thumbnail: "https://img.youtube.com/vi/8dneZHv9vus/maxresdefault.jpg",
+    videoId: "8dneZHv9vus",
+    type: "youtube",
     year: "2024",
   },
 ];
 
-const filters = ["All", "Cinematic", "UGC", "Promo"];
+const filters = ["All", "Wedding", "Cinematic", "UGC", "Promo"];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -109,7 +144,11 @@ const Projects = () => {
                   <div className="relative w-full h-full">
                     <iframe
                       className="w-full h-full"
-                      src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1`}
+                      src={
+                        project.type === "youtube"
+                          ? `https://www.youtube.com/embed/${project.videoId}?autoplay=1`
+                          : `https://drive.google.com/file/d/${project.videoId}/preview`
+                      }
                       title={project.title}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
