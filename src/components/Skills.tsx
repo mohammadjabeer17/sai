@@ -10,6 +10,7 @@ import {
   Edit3,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { Button } from "@/components/ui/button";
 
 const skills = [
   {
@@ -106,6 +107,21 @@ const Skills = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button
+            asChild
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
+            <a
+              href="https://drive.google.com/drive/folders/1PPtG7wYzYE4_AFcDMrjIwwMrJzHX9G2v?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Brand Content
+            </a>
+          </Button>
         </div>
       </div>
     </section>
